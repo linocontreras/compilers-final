@@ -97,20 +97,20 @@ simple-expression -> Minus simple-expression
 
 ### Follow
 
-| symbol | set  |
-| :----: | :---:|
-| program | |
-| declaration-star | |
-| declaration | |
-| statement-star | |
-| statement | |
-| type | |
-| assignment | |
-| print | |
-| condition | |
-| expression | |
-| expression-prime | |
-| simple-expression | |
+| symbol | set |
+| ----: | :---|
+| program | $ |
+| declaration-star | Identifier, Print, If, $ |
+| declaration | Int, Bool, Identifier, Print, If, $ |
+| statement-star | End, $ |
+| statement | Identifier, Print, If, End, $ |
+| type | Identifier |
+| assignment | Identifier, Print, If, End, $ |
+| print | Identifier, Print, If, End, $ |
+| condition | Identifier, Print, If, End, $ |
+| expression | Identifier, Print, If, Then, RParen, End, $ |
+| expression-prime | Identifier, Print, If, Then, RParen, End, $ |
+| simple-expression | Identifier, Print, If, Then, Rparen, End, Operator, $ |
 
 ## Tabla
 

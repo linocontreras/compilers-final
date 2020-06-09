@@ -48,6 +48,61 @@ namespace Compiler.Parsing
         {
             this.SetUpProductionSymbols();
             this.actions[(SymbolType.Program, SymbolType.TokenId)] = this.productionSymbols[1];
+            this.actions[(SymbolType.Program, SymbolType.TokenInt)] = this.productionSymbols[1];
+            this.actions[(SymbolType.Program, SymbolType.TokenBoolean)] = this.productionSymbols[1];
+            this.actions[(SymbolType.Program, SymbolType.TokenPrint)] = this.productionSymbols[1];
+            this.actions[(SymbolType.Program, SymbolType.TokenIf)] = this.productionSymbols[1];
+            this.actions[(SymbolType.Program, SymbolType.TokenEOF)] = this.productionSymbols[1];
+
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenId)] = this.productionSymbols[3];
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenPrint)] = this.productionSymbols[3];
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenIf)] = this.productionSymbols[3];
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenEOF)] = this.productionSymbols[3];
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenInt)] = this.productionSymbols[2];
+            this.actions[(SymbolType.DeclarationStar, SymbolType.TokenBool)] = this.productionSymbols[2];
+
+            this.actions[(SymbolType.Declaration, SymbolType.TokenInt)] = this.productionSymbols[4];
+            this.actions[(SymbolType.Declaration, SymbolType.TokenBool)] = this.productionSymbols[4];
+
+            this.actions[(SymbolType.StatementStar, SymbolType.TokenId)] = this.productionSymbols[5];
+            this.actions[(SymbolType.StatementStar, SymbolType.TokenPrint)] = this.productionSymbols[5];
+            this.actions[(SymbolType.StatementStar, SymbolType.TokenIf)] = this.productionSymbols[5];
+            this.actions[(SymbolType.StatementStar, SymbolType.TokenEnd)] = this.productionSymbols[6];
+            this.actions[(SymbolType.StatementStar, SymbolType.TokenEOF)] = this.productionSymbols[6];
+
+            this.actions[(SymbolType.Statement, SymbolType.TokenId)] = this.productionSymbols[7];
+            this.actions[(SymbolType.Statement, SymbolType.TokenPrint)] = this.productionSymbols[8];
+            this.actions[(SymbolType.Statement, SymbolType.TokenIf)] = this.productionSymbols[9];
+
+            this.actions[(SymbolType.Type, SymbolType.TokenInt)] = this.productionSymbols[10];
+            this.actions[(SymbolType.Type, SymbolType.TokenBool)] = this.productionSymbols[11];
+
+            this.actions[(SymbolType.Assigment, SymbolType.TokenId)] = this.productionSymbols[12];
+
+            this.actions[(SymbolType.Print, SymbolType.Print)] = this.productionSymbols[13];
+
+            this.actions[(SymbolType.Condition, SymbolType.TokenIf)] = this.productionSymbols[14];
+
+            this.actions[(SymbolType.Expression, SymbolType.TokenId)] = this.productionSymbols[15];
+            this.actions[(SymbolType.Expression, SymbolType.TokenInteger)] = this.productionSymbols[15];
+            this.actions[(SymbolType.Expression, SymbolType.TokenBoolean)] = this.productionSymbols[15];
+            this.actions[(SymbolType.Expression, SymbolType.TokenLParen)] = this.productionSymbols[15];
+            this.actions[(SymbolType.Expression, SymbolType.TokenMinus)] = this.productionSymbols[15];
+
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenId)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenPrint)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenIf)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenThen)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenEnd)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenOperator)] = this.productionSymbols[16];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenRParen)] = this.productionSymbols[17];
+            this.actions[(SymbolType.ExpressionPrime, SymbolType.TokenEOF)] = this.productionSymbols[17];
+
+            this.actions[(SymbolType.SimpleExpression, SymbolType.TokenId)] = this.productionSymbols[18];
+            this.actions[(SymbolType.SimpleExpression, SymbolType.TokenInteger)] = this.productionSymbols[19];
+            this.actions[(SymbolType.SimpleExpression, SymbolType.TokenBoolean)] = this.productionSymbols[20];
+            this.actions[(SymbolType.SimpleExpression, SymbolType.TokenLParen)] = this.productionSymbols[21];
+            this.actions[(SymbolType.SimpleExpression, SymbolType.TokenMinus)] = this.productionSymbols[22];
         }
 
         public void Parse()

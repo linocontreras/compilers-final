@@ -14,12 +14,11 @@ namespace Compiler.Parsing {
             this.lexer = lexer;
         }
 
-        private void SetUpKeywords() {
-            
-        }
-
         public void Parse() {
-            throw new Exception("Not implemented!");
+            while (this.lexer.PeekToken().Type != SymbolType.EOF) 
+            {
+                Console.WriteLine(this.lexer.GetNextToken());
+            }
         }
     }
 }

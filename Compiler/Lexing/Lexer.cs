@@ -21,6 +21,8 @@ namespace Compiler.Lexing
         public Lexer(TextReader textReader)
         {
             this.textReader = textReader;
+            this.peek = this.textReader.Peek();
+
             this.SetUpOneChars();
             this.SetUpKeywords();
         }
@@ -31,6 +33,7 @@ namespace Compiler.Lexing
             this.oneChars.Add('&', new TokenOperator(Operators.And));
             this.oneChars.Add('+', new TokenOperator(Operators.Add));
             this.oneChars.Add('*', new TokenOperator(Operators.Prod));
+            this.oneChars.Add('<', new TokenOperator(Operators.LT));
             this.oneChars.Add('-', new Token(SymbolType.Minus));
         }
 
@@ -140,9 +143,9 @@ namespace Compiler.Lexing
                     integer *= 10;
                     integer += int.Parse($"{(char)this.Read()}");
                 } while (char.IsDigit((char)this.peek));
-                        
-                    
-                
+
+                return new TokenInteger(integer);
+
             }
 
             throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) unexpected: " + (char)this.Read());

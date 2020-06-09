@@ -160,7 +160,7 @@ namespace Compiler.Lexing
 
             }
 
-            throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) unexpected: " + (int)this.Read());
+            throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) unexpected: " + (char)this.Read());
         }
     }
 }

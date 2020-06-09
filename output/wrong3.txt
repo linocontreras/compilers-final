@@ -1,0 +1,8 @@
+stack: { Program, TokenEOF, } next: [TokenId] notype
+stack: { DeclarationStar, StatementStar, TokenEOF, } next: [TokenId] notype
+stack: { StatementStar, TokenEOF, } next: [TokenId] notype
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenId] notype
+stack: { Assigment, StatementStar, TokenEOF, } next: [TokenId] notype
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] notype
+stack: { TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] s
+Syntax error: Unexpected [TokenId] s near line 1 col 9

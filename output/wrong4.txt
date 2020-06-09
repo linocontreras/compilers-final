@@ -1,0 +1,82 @@
+stack: { Program, TokenEOF, } next: [TokenId] b1
+stack: { DeclarationStar, StatementStar, TokenEOF, } next: [TokenId] b1
+stack: { StatementStar, TokenEOF, } next: [TokenId] b1
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenId] b1
+stack: { Assigment, StatementStar, TokenEOF, } next: [TokenId] b1
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] b1
+stack: { TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenEquals]
+stack: { Expression, StatementStar, TokenEOF, } next: [TokenBoolean] True
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenBoolean] True
+stack: { TokenBoolean, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenBoolean] True
+stack: { ExpressionPrime, StatementStar, TokenEOF, } next: [TokenId] b2
+stack: { StatementStar, TokenEOF, } next: [TokenId] b2
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenId] b2
+stack: { Assigment, StatementStar, TokenEOF, } next: [TokenId] b2
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] b2
+stack: { TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenEquals]
+stack: { Expression, StatementStar, TokenEOF, } next: [TokenBoolean] False
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenBoolean] False
+stack: { TokenBoolean, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenBoolean] False
+stack: { ExpressionPrime, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { Assigment, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenEquals]
+stack: { Expression, StatementStar, TokenEOF, } next: [TokenInteger] 10
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenInteger] 10
+stack: { TokenInteger, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenInteger] 10
+stack: { ExpressionPrime, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { Assigment, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { TokenEquals, Expression, StatementStar, TokenEOF, } next: [TokenEquals]
+stack: { Expression, StatementStar, TokenEOF, } next: [TokenInteger] 1878
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenInteger] 1878
+stack: { TokenInteger, ExpressionPrime, StatementStar, TokenEOF, } next: [TokenInteger] 1878
+stack: { ExpressionPrime, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Statement, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Condition, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { TokenIf, Expression, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Expression, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { TokenId, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] LT
+stack: { TokenOperator, SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] LT
+stack: { SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { TokenId, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenThen]
+stack: { TokenThen, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenThen]
+stack: { StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { Statement, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { Assigment, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { TokenId, TokenEquals, Expression, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { TokenEquals, Expression, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenEquals]
+stack: { Expression, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { TokenId, ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num1
+stack: { ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] Prod
+stack: { TokenOperator, SimpleExpression, ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] Prod
+stack: { SimpleExpression, ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { TokenId, ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { ExpressionPrime, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Statement, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Condition, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { TokenIf, Expression, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenIf]
+stack: { Expression, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { TokenId, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num2
+stack: { ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] LT
+stack: { TokenOperator, SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenOperator] LT
+stack: { SimpleExpression, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { TokenId, ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenId] num3
+stack: { ExpressionPrime, TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenThen]
+stack: { TokenThen, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenThen]
+stack: { StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenPrint]
+stack: { Statement, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenPrint]
+stack: { Print, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenPrint]
+stack: { TokenPrint, Expression, StatementStar, TokenEnd, StatementStar, TokenEnd, StatementStar, TokenEOF, } next: [TokenPrint]
+Lexical error: Unexpected: h near line 8 col 12

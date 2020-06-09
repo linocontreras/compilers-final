@@ -1,5 +1,12 @@
 namespace Compiler.Lexing {
-    class Lexer {
+    using System.IO;
 
+    class Lexer {
+        private TextReader textReader;
+
+        public Lexer(TextReader textReader)
+        {
+            this.textReader = textReader;
+        }
     }
 }

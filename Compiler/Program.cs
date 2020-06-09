@@ -1,18 +1,34 @@
 ﻿namespace Compiler
 {
     using System;
+    using System.IO;
     using Parsing;
+    using Lexing;
 
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            Parser parser = new Parser();
+            TextReader textReader;
+            if (args.Length == 0)
+            {
+                textReader = Console.In;
+            }
+            else
+            {
+                textReader = new StreamReader(File.OpenRead(args[0]));
+            }
+
+            Lexer lexer = new Lexer(textReader);
+
+            Parser parser = new Parser(lexer);
 
             try {
                 parser.Parse();
+                return 0;
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
+                return 1;
             }
 
             

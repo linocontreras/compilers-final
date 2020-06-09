@@ -23,7 +23,7 @@ namespace Compiler {
         StatementStar,
         Statement,
         Type,
-        Asignment,
+        Assigment,
         Print,
         Condition,
         Expression,

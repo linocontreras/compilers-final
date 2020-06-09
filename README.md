@@ -143,18 +143,17 @@ simple-expression -> Minus simple-expression
 
 ### Tabla
 
-| simbol \ terminal | Int | Bool | Identifier | Print | If  | Then | End | Operator | LParen | RParen | Minus | $   |
-| ----------------: |:---:| :---:| :--------: | :---: |:---:| :---:|:---:| :------: | :----: | :----: | :---: |:---:|
-| program           | 1   | 1    | 1          | 1     | 1   |      |     |          |        |        |       | 1   |
-| declaration-star  | 2   | 2    | 3          | 3     | 3   |      |     |          |        |        |       | 3   |
-| declaration       |     |      |            |       |     |      |     |          |        |        |       |     |
-| statement-star    |     |      |            |       |     |      |     |          |        |        |       |     |
-| statement         |     |      |            |       |     |      |     |          |        |        |       |     |
-| type              |     |      |            |       |     |      |     |          |        |        |       |     |
-| assignment        |     |      |            |       |     |      |     |          |        |        |       |     |
-| print             |     |      |            |       |     |      |     |          |        |        |       |     |
-| condition         |     |      |            |       |     |      |     |          |        |        |       |     |
-| expression        |     |      |            |       |     |      |     |          |        |        |       |     |
-| expression-prime  |     |      |            |       |     |      |     |          |        |        |       |     |
-| simple-expression |     |      |            |       |     |      |     |          |        |        |       |     |
-
+| simbol \ terminal | Identifier | Int | Bool | Equals | Print | If  | Then | End | Operator | Integer | Boolean | LParen | RParen | Minus | $   |
+| ----------------: | :--------: |:---:| :---:| :----: | :---: |:---:| :---:|:---:| :------: | :-----: | :-----: | :----: | :----: | :---: |:---:|
+| program           | 1          | 1   | 1    |        | 1     | 1   |      |     |          |         |         |        |        |       | 1   |
+| declaration-star  | 3          | 2   | 2    |        | 3     | 3   |      |     |          |         |         |        |        |       | 3   |
+| declaration       |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| statement-star    |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| statement         |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| type              |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| assignment        |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| print             |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| condition         |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| expression        |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| expression-prime  |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |
+| simple-expression |            |     |      |        |       |     |      |     |          |         |         |        |        |       |     |

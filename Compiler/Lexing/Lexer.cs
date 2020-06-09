@@ -35,6 +35,8 @@ namespace Compiler.Lexing
             this.oneChars.Add('*', new TokenOperator(Operators.Prod));
             this.oneChars.Add('<', new TokenOperator(Operators.LT));
             this.oneChars.Add('-', new Token(SymbolType.TokenMinus));
+            this.oneChars.Add('(', new Token(SymbolType.TokenLParen));
+            this.oneChars.Add(')', new Token(SymbolType.TokenRParen));
         }
 
         public void SetUpKeywords()

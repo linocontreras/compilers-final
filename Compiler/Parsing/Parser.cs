@@ -34,7 +34,7 @@ namespace Compiler.Parsing
             this.productionSymbols[10] = new SymbolType[] { SymbolType.TokenInt };
             this.productionSymbols[11] = new SymbolType[] { SymbolType.TokenBool };
             this.productionSymbols[12] = new SymbolType[] { SymbolType.TokenId, SymbolType.TokenEquals, SymbolType.Expression };
-            this.productionSymbols[13] = new SymbolType[] { SymbolType.Print, SymbolType.Expression };
+            this.productionSymbols[13] = new SymbolType[] { SymbolType.TokenPrint, SymbolType.Expression };
             this.productionSymbols[14] = new SymbolType[] { SymbolType.TokenIf, SymbolType.Expression, SymbolType.TokenThen, SymbolType.StatementStar, SymbolType.TokenEnd };
             this.productionSymbols[15] = new SymbolType[] { SymbolType.SimpleExpression, SymbolType.ExpressionPrime };
             this.productionSymbols[16] = new SymbolType[] { SymbolType.TokenOperator, SymbolType.SimpleExpression, SymbolType.ExpressionPrime };
@@ -81,7 +81,7 @@ namespace Compiler.Parsing
 
             this.actions[(SymbolType.Assigment, SymbolType.TokenId)] = this.productionSymbols[12];
 
-            this.actions[(SymbolType.Print, SymbolType.Print)] = this.productionSymbols[13];
+            this.actions[(SymbolType.Print, SymbolType.TokenPrint)] = this.productionSymbols[13];
 
             this.actions[(SymbolType.Condition, SymbolType.TokenIf)] = this.productionSymbols[14];
 

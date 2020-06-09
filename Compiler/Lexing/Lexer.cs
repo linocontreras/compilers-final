@@ -73,6 +73,7 @@ namespace Compiler.Lexing
                 {
                     case ' ':
                     case '\t':
+                    case '\r':
                         this.Read();
                         break;
                     case '\n':

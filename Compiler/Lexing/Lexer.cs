@@ -128,8 +128,8 @@ namespace Compiler.Lexing
 
                 do
                 {
-                    sb.Append(char.ToLower((char)this.Read()));
-                } while (char.IsLetterOrDigit((char)this.peek));
+                    sb.Append((char)this.Read());
+                } while (char.IsLetter((char)this.peek));
 
                 this.keywords.TryGetValue(sb.ToString(), out Symbol keyword);
                 return keyword ?? new TokenIdentifier(sb.ToString());
@@ -140,8 +140,19 @@ namespace Compiler.Lexing
                 int integer = 0;
                 do
                 {
-                    integer *= 10;
-                    integer += int.Parse($"{(char)this.Read()}");
+                    try
+                    {
+                        checked
+                        {
+                            integer *= 10;
+                            integer += int.Parse($"{(char)this.Read()}");
+                        }
+                    }
+                    catch (ArithmeticException)
+                    {
+                        throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) Integer exceeds maximum value of {int.MaxValue}");
+                    }
+
                 } while (char.IsDigit((char)this.peek));
 
                 return new TokenInteger(integer);

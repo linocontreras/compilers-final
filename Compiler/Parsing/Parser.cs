@@ -142,7 +142,7 @@ namespace Compiler.Parsing
                 }
                 else
                 {
-                    throw new Exception($"Syntax error: Unexpected {this.lexer.PeekToken()} at line {this.lexer.CurrentLine} col {this.lexer.CurrentCol}");
+                    throw new Exception($"Syntax error: Unexpected {this.lexer.PeekToken()} near line {this.lexer.CurrentLine} col {this.lexer.CurrentCol}");
                 }
             }
 

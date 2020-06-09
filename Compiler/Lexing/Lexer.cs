@@ -117,10 +117,16 @@ namespace Compiler.Lexing
 
                 if (this.peek != 't' && this.peek != 'f')
                 {
-                    throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) unexpected: " + (char)this.Read());
+                    throw new Exception(this.GetMessage($"Expected t or f got {(char)this.Read()} instead"));
                 }
 
-                return new TokenBoolean(this.Read() == 't');
+                bool tokenBoolean = this.Read() == 't';
+
+                if (!char.IsWhiteSpace((char)this.peek)) {
+                    throw new Exception(this.GetMessage($"Unexpected: {(char)this.Read()}"));
+                }
+
+                return new TokenBoolean(tokenBoolean);
             }
 
             if (char.IsLetter((char)this.peek))
@@ -130,7 +136,7 @@ namespace Compiler.Lexing
                 do
                 {
                     sb.Append((char)this.Read());
-                } while (char.IsLetter((char)this.peek));
+                } while (char.IsLetterOrDigit((char)this.peek));
 
                 this.keywords.TryGetValue(sb.ToString(), out Symbol keyword);
                 return keyword ?? new TokenIdentifier(sb.ToString());
@@ -151,7 +157,7 @@ namespace Compiler.Lexing
                     }
                     catch (ArithmeticException)
                     {
-                        throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) Integer exceeds maximum value of {int.MaxValue}");
+                        throw new Exception(this.GetMessage($"Integer exceeds maximum value of {int.MaxValue}"));
                     }
 
                 } while (char.IsDigit((char)this.peek));
@@ -160,7 +166,12 @@ namespace Compiler.Lexing
 
             }
 
-            throw new Exception($"({this.CurrentLine}, {this.CurrentCol}) unexpected: " + (char)this.Read());
+            throw new Exception(this.GetMessage($"Unexpected: {(char)this.Read()}"));
+        }
+
+        private string GetMessage(string message) 
+        {
+            return $"Lexical error: {message} near line {this.CurrentLine} col {this.CurrentCol}";
         }
     }
 }

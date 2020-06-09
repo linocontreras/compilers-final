@@ -26,7 +26,16 @@ namespace Compiler.Parsing
         {
             while (this.lexer.PeekToken().Type != SymbolType.TokenEOF)
             {
-                Console.WriteLine(this.lexer.GetNextToken());
+                if (this.stack.Peek() == this.lexer.PeekToken().Type) {
+                    this.lexer.GetNextToken();
+                    this.stack.Pop();
+                } else if (this.actions.TryGetValue((this.stack.Peek(), this.lexer.PeekToken().Type), out ICollection<SymbolType> symbols)) {
+                    foreach (SymbolType symbol in symbols) {
+                        this.stack.Push(symbol);
+                    }
+                } else {
+                    throw new Exception($"Syntax error: Unexpected {this.lexer.PeekToken()} at line {this.lexer.CurrentLine} col {this.lexer.CurrentCol}");
+                }
             }
 
             if (this.stack.Count == 0)

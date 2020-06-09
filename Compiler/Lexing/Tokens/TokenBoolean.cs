@@ -5,7 +5,7 @@ namespace Compiler.Lexing.Tokens
     {
         public bool Value { get; private set; }
 
-        public TokenBoolean(bool value) : base(SymbolType.Boolean)
+        public TokenBoolean(bool value) : base(SymbolType.TokenBoolean)
         {
             this.Value = value;
         }

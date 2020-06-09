@@ -6,7 +6,7 @@ namespace Compiler.Lexing
     using System.Text;
     using Tokens;
 
-    class Lexer
+    public class Lexer
     {
         private TextReader textReader;
 
@@ -29,22 +29,22 @@ namespace Compiler.Lexing
 
         public void SetUpOneChars()
         {
-            this.oneChars.Add('=', new Token(SymbolType.Equals));
+            this.oneChars.Add('=', new Token(SymbolType.TokenEquals));
             this.oneChars.Add('&', new TokenOperator(Operators.And));
             this.oneChars.Add('+', new TokenOperator(Operators.Add));
             this.oneChars.Add('*', new TokenOperator(Operators.Prod));
             this.oneChars.Add('<', new TokenOperator(Operators.LT));
-            this.oneChars.Add('-', new Token(SymbolType.Minus));
+            this.oneChars.Add('-', new Token(SymbolType.TokenMinus));
         }
 
         public void SetUpKeywords()
         {
-            this.keywords.Add("int", new Token(SymbolType.Int));
-            this.keywords.Add("bool", new Token(SymbolType.Bool));
-            this.keywords.Add("print", new Token(SymbolType.Print));
-            this.keywords.Add("if", new Token(SymbolType.If));
-            this.keywords.Add("then", new Token(SymbolType.Then));
-            this.keywords.Add("end", new Token(SymbolType.End));
+            this.keywords.Add("int", new Token(SymbolType.TokenInt));
+            this.keywords.Add("bool", new Token(SymbolType.TokenBool));
+            this.keywords.Add("print", new Token(SymbolType.TokenPrint));
+            this.keywords.Add("if", new Token(SymbolType.TokenIf));
+            this.keywords.Add("then", new Token(SymbolType.TokenThen));
+            this.keywords.Add("end", new Token(SymbolType.TokenEnd));
         }
 
         public Symbol PeekToken()
@@ -99,7 +99,7 @@ namespace Compiler.Lexing
 
             if (this.peek == -1)
             {
-                return new Token(SymbolType.EOF);
+                return new Token(SymbolType.TokenEOF);
             }
 
             this.oneChars.TryGetValue((char)this.peek, out Symbol oneChar);

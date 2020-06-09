@@ -1,23 +1,41 @@
-namespace Compiler.Parsing {
+namespace Compiler.Parsing
+{
     using System;
     using System.Collections.Generic;
     using Lexing;
 
-    class Parser {
+    public class Parser
+    {
         private Lexer lexer;
 
-        private Dictionary<string, Symbol> keywords = new Dictionary<string, Symbol>();
+        private Stack<SymbolType> stack = new Stack<SymbolType>();
+        private Dictionary<(SymbolType, SymbolType), ICollection<SymbolType>> actions = new Dictionary<(SymbolType, SymbolType), ICollection<SymbolType>>();
 
-        private Dictionary<char, Symbol> oneChars = new Dictionary<char, Symbol>();
-
-        public Parser(Lexer lexer) {
+        public Parser(Lexer lexer)
+        {
             this.lexer = lexer;
+            this.SetUpProductions();
         }
 
-        public void Parse() {
-            while (this.lexer.PeekToken().Type != SymbolType.EOF) 
+        private void SetUpProductions()
+        {
+            this.actions[(SymbolType.Program, SymbolType.TokenId)] = new SymbolType[] { SymbolType.DeclarationStar, SymbolType.StatementStar };
+        }
+
+        public void Parse()
+        {
+            while (this.lexer.PeekToken().Type != SymbolType.TokenEOF)
             {
                 Console.WriteLine(this.lexer.GetNextToken());
+            }
+
+            if (this.stack.Count == 0)
+            {
+                Console.WriteLine("Compiled successfully!");
+            }
+            else
+            {
+                throw new Exception("Unexpected end of file.");
             }
         }
     }

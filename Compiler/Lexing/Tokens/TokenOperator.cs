@@ -6,7 +6,7 @@ namespace Compiler.Lexing.Tokens
     {
         public Operators Operator { get; private set; }
 
-        public TokenOperator(Operators @operator) : base(SymbolType.Operator)
+        public TokenOperator(Operators @operator) : base(SymbolType.TokenOperator)
         {
             this.Operator = @operator;
         }

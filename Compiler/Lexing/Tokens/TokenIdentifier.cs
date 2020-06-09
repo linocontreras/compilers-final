@@ -5,7 +5,7 @@ namespace Compiler.Lexing.Tokens
     {
         public string Value { get; private set; }
 
-        public TokenIdentifier(string value) : base(SymbolType.Identifier)
+        public TokenIdentifier(string value) : base(SymbolType.TokenId)
         {
             this.Value = value;
         }

@@ -75,5 +75,42 @@ simple-expression -> LParen expression RParen
 simple-expression -> Minus simple-expression
 ```
 
+## Conjuntos First y Follow
+
+### First
+
+| symbol | set |
+| ----: | :---|
+| program | Int, Bool, Identifier, Print, If, ε |
+| declaration-star | Int, Bool, ε |
+| declaration | Int, Bool |
+| statement-star | Identifier, Print, If, ε |
+| statement | Identifier, Print, If |
+| type | Int, Bool |
+| assignment | Identifier |
+| print | Print |
+| condition | If |
+| expression | Identifier, Integer, Boolean, LParen, Minus |
+| expression-prime | Operator, ε |
+| simple-expression | Identifier, Integer, Boolean, LParen, Minus |
+
+
+### Follow
+
+| symbol | set  |
+| :----: | :---:|
+| program | |
+| declaration-star | |
+| declaration | |
+| statement-star | |
+| statement | |
+| type | |
+| assignment | |
+| print | |
+| condition | |
+| expression | |
+| expression-prime | |
+| simple-expression | |
+
 ## Tabla
 

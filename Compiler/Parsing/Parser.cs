@@ -119,7 +119,7 @@ namespace Compiler.Parsing
         {
             while (this.stack.Count > 0)
             {
-                this.PrintStack();
+                // this.PrintStack();
                 if (this.stack.Peek() == this.lexer.PeekToken().Type)
                 {
                     this.stack.Pop();

@@ -1,5 +1,6 @@
 namespace Compiler.Lexing.Tokens
 {
+    using System;
 
     public class TokenIdentifier : Symbol
     {
@@ -8,6 +9,11 @@ namespace Compiler.Lexing.Tokens
         public TokenIdentifier(string value) : base(SymbolType.TokenId)
         {
             this.Value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"[{Enum.GetName(typeof(SymbolType), this.Type)}] {this.Value}";
         }
     }
 }

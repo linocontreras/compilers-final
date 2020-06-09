@@ -10,11 +10,13 @@ namespace Compiler.Parsing
 
         private Stack<SymbolType> stack = new Stack<SymbolType>();
         private Dictionary<(SymbolType, SymbolType), ICollection<SymbolType>> actions = new Dictionary<(SymbolType, SymbolType), ICollection<SymbolType>>();
-        private Dictionary<int, ICollection<SymbolType>> productionSymbols = new Dictionary<int, ICollection<SymbolType>>();
+        private Dictionary<int, IList<SymbolType>> productionSymbols = new Dictionary<int, IList<SymbolType>>();
 
         public Parser(Lexer lexer)
         {
             this.lexer = lexer;
+            this.stack.Push(SymbolType.TokenEOF);
+            this.stack.Push(SymbolType.Program);
             this.SetUpProductions();
         }
 
@@ -105,10 +107,19 @@ namespace Compiler.Parsing
             this.actions[(SymbolType.SimpleExpression, SymbolType.TokenMinus)] = this.productionSymbols[22];
         }
 
+        private void PrintStack() {
+            Console.Write("stack: { ");
+            foreach (var item in this.stack) {
+                Console.Write($"{item}, ");
+            }
+            Console.WriteLine($"}} next: {this.lexer.PeekToken()}");
+        }
+
         public void Parse()
         {
-            while (this.lexer.PeekToken().Type != SymbolType.TokenEOF)
+            while (this.stack.Count > 0)
             {
+                this.PrintStack();
                 if (this.stack.Peek() == this.lexer.PeekToken().Type)
                 {
                     this.stack.Pop();
@@ -117,8 +128,15 @@ namespace Compiler.Parsing
                 else if (this.actions.TryGetValue((this.stack.Peek(), this.lexer.PeekToken().Type), out ICollection<SymbolType> symbols))
                 {
                     this.stack.Pop();
+
+                    Stack<SymbolType> toAdd = new Stack<SymbolType>();
+
                     foreach (SymbolType symbol in symbols)
                     {
+                        toAdd.Push(symbol);
+                    }
+
+                    foreach (SymbolType symbol in toAdd) {
                         this.stack.Push(symbol);
                     }
                 }
@@ -128,14 +146,7 @@ namespace Compiler.Parsing
                 }
             }
 
-            if (this.stack.Count == 0)
-            {
-                Console.WriteLine("Compiled successfully!");
-            }
-            else
-            {
-                throw new Exception("Syntax error: Unexpected end of file.");
-            }
+            Console.WriteLine("Compiled successfully!");
         }
     }
 }

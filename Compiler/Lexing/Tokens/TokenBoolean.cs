@@ -1,5 +1,6 @@
 namespace Compiler.Lexing.Tokens
 {
+    using System;
 
     public class TokenBoolean : Symbol
     {
@@ -8,6 +9,11 @@ namespace Compiler.Lexing.Tokens
         public TokenBoolean(bool value) : base(SymbolType.TokenBoolean)
         {
             this.Value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"[{Enum.GetName(typeof(SymbolType), this.Type)}] {this.Value}";
         }
     }
 }
